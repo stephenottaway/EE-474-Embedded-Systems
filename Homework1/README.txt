@@ -1,18 +1,7 @@
 README.txt - HW1: Pointers and Embedded Thinking
 
 Name:  Stephen Ottaway
-Date:  6/28/2026
-
----
-
-General Instructions:
-
-- This file is required as part of your submission.
-- Fill in the answers to the questions for each part.
-- Use this document to also describe your code and paste output.
-- Be clear and concise.
-
----
+Date:  7/2/2026
 
 Part I: C Basics – Variables and Pointers
 
