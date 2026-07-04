@@ -7,7 +7,7 @@
 #define LED_PIN_COUNT 2
 #define LED_ONE_PIN 1
 #define LED_TWO_PIN 2
-#define LED_ONE_TOGGLE_TIME_MS 1000 // ms
+#define LED_ONE_TOGGLE_TIME_MS 1 // ms
 #define LED_TWO_TOGGLE_TIME_MS 500 // ms
 
 // ============ Global Variables ============
