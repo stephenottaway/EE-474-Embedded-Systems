@@ -1,6 +1,6 @@
-// Filename: Lab2Part5.ino
+// Filename: Lab2Part4Step5.ino
 // Author: Stephen Ottaway
-// Date: 7/7/2026
+// Date: 7/8/2026
 // Description: This file uses timer logic to produce a one-time LED blinking sequence at a low, medium, and high frequency for a certain duration once the ambient light drops below a certain threshold.
 
 // ============ Includes ============
@@ -60,16 +60,12 @@ void run_led_sequence(uint32_t low_freq, uint32_t mid_freq, uint32_t high_freq) 
 }
 
 void setup() {
-  Serial.begin(9600);
   pinMode(ANALOG_READ_PIN, INPUT);
   pinMode(PWM_PIN, OUTPUT);
 }
 
 void loop() {
-  Serial.println(analogRead(ANALOG_READ_PIN));
   adc_low_threshold_met = light_below_threshold(ANALOG_READ_PIN);
-  Serial.println(adc_low_threshold_met);
-  delay(500);
   if (adc_low_threshold_met) {
     run_led_sequence(low_freq, mid_freq, high_freq);
     adc_low_threshold_met = false; // Reset this flag so that the led sequence only runs once per threshold detection occurrence.
