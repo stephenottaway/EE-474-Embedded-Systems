@@ -10,8 +10,8 @@
 #include "soc/gpio_periph.h"
 
 // ============= Macros =============
-#define GPIO_PIN 1 // GPIO1
-#define GPIO_PIN_1_SET_MASK 0x00000002 // 0x00000002 = 0b00000000 00000000 00000000 00000010 as GPIO1 is the second LSB.
+#define GPIO_PIN 5 // GPIO5
+#define GPIO_PIN_5_SET_MASK (1 << 5) // GPIO5 is the fifth LSB.
 #define REPETITIONS 1000
 
 // ====== Function Prototypes =======
@@ -40,8 +40,8 @@ unsigned long measure_register_time(uint8_t gpio_pin, uint32_t repetitions) {
   unsigned long reference_time = 0;
   for (int i = 0; i < repetitions; i++) {
     reference_time = micros();
-    *((volatile uint32_t*) GPIO_OUT_REG) |= GPIO_PIN_1_SET_MASK; // Set pin 1 to output 1 (HIGH voltage) while leaving all other pins unchanged.
-    *((volatile uint32_t*) GPIO_OUT_REG) &= ~GPIO_PIN_1_SET_MASK; // Set pin 1 to output 0 (LOW voltage) while leaving all other pins unchanged.
+    *((volatile uint32_t*) GPIO_OUT_REG) |= GPIO_PIN_5_SET_MASK; // Set pin 5 to output 1 (HIGH voltage) while leaving all other pins unchanged.
+    *((volatile uint32_t*) GPIO_OUT_REG) &= ~GPIO_PIN_5_SET_MASK; // Set pin 5 to output 0 (LOW voltage) while leaving all other pins unchanged.
     measured_time += (micros() - reference_time);
   }
   return measured_time;
@@ -58,8 +58,8 @@ void compare_measured_times(uint8_t gpio_pin, uint32_t repetitions) {
 }
 
 void setup() {
-  PIN_FUNC_SELECT(GPIO_PIN_MUX_REG[GPIO_PIN], PIN_FUNC_GPIO);
-  *((volatile uint32_t*) GPIO_ENABLE_REG) |= GPIO_PIN_1_SET_MASK; // Enable pin 1 as an output pin while leaving all other pins unchanged.
+  PIN_FUNC_SELECT(GPIO_PIN_MUX_REG[GPIO_PIN], PIN_FUNC_GPIO); // Select pin 5 to be a GPIO pin using the pin multiplex macro.
+  *((volatile uint32_t*) GPIO_ENABLE_REG) |= GPIO_PIN_5_SET_MASK; // Enable pin 5 as an output pin while leaving all other pins unchanged.
   Serial.begin(9600);
   delay(5000); // Wait for five seconds before running measurements and comparing them.
   compare_measured_times((uint8_t) GPIO_PIN, (uint32_t) REPETITIONS);
