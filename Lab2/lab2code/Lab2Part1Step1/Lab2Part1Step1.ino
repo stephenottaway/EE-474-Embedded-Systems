@@ -1,6 +1,6 @@
-// Filename: Lab2Part1.ino
+// Filename: Lab2Part1Step1.ino
 // Author: Stephen Ottaway
-// Date: 7/2/2026
+// Date: 7/8/2026
 // Description: This file blinks an external LED by directly manipulating hardware GPIO registers and using bitwise operations. 
 
 // ============ Includes ============

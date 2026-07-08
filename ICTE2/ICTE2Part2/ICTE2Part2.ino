@@ -17,7 +17,7 @@
 #define TIMER_ENABLE (1 << 31) // Bit 31 needs to be set in the timer config register for the timer to be enabled.
 
 void setup() {
-  PIN_FUNC_SELECT(GPIO_PIN_MUX_REG[GPIO_PIN], PIN_FUNC_GPIO); // Use MUX macro to set GPIO_PIN function to GPIO
+  PIN_FUNC_SELECT(GPIO_PIN_MUX_REG[GPIO_PIN], PIN_FUNC_GPIO); // Use MUX macro to set GPIO_PIN function to GPIO.
   *((volatile uint32_t*) GPIO_ENABLE_REG) |= GPIO_PIN_5_MASK; // Enable GPIO_PIN as an output.
   uint32_t timer_config = 0; // Stores 32 bits to be written to the timer config register before the timer is started.
   timer_config |= TIMER_INCREMENT_MODE; // Set increment mode.

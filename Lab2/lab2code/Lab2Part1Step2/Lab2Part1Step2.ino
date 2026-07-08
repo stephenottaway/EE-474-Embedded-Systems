@@ -1,6 +1,6 @@
-// Filename: Lab2Part2.ino
+// Filename: Lab2Part1Step2.ino
 // Author: Stephen Ottaway
-// Date: 7/2/2026
+// Date: 7/8/2026
 // Description: This file measures and compares the time it takes to change the output voltage on a pin from HIGH to LOW using a) Arduino library functions (digitalWrite()) and b) direct register access.
 
 // ============ Includes ============
