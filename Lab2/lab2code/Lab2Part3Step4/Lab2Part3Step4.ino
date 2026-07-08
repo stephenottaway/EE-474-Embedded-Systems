@@ -1,4 +1,4 @@
-// Filename: Lab2Part4.ino
+// Filename: Lab2Part3Step4.ino
 // Author: Stephen Ottaway
 // Date: 7/6/2026
 // Description: This file uses the intensity of ambient light detected in the room by a photoresistor to control the brightness of an LED; the less ambient light detected, the brighter the LED is driven (and vice-versa).
@@ -29,6 +29,6 @@ void setup() {
 }
 
 void loop() {
-  duty = update_led_duty(ANALOG_READ_PIN);
-  ledcWrite(PWM_PIN, duty);
+  duty = update_led_duty(ANALOG_READ_PIN); // Continuously update LED duty cycle based on formula described in update_led_duty().
+  ledcWrite(PWM_PIN, duty); // Write that updated PWM duty cycle to the LED.
 }
