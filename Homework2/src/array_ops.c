@@ -86,5 +86,5 @@ void run_array_ops() {
     printf("\n");
     int offset = 2;
     int max_with_offset = find_max_offset(arr, size, offset);
-    printf("Max with offset %d: %d", offset, max_with_offset);
+    printf("Max with offset %d: %d\n", offset, max_with_offset);
 }

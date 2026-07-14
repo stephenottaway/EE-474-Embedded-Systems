@@ -16,8 +16,14 @@ addr + 1 when addr is a uint32_t pointer adds 4 bytes to addr).
 
 Part II:
 - How is a 2D array laid out in memory?
+A 2D array is laid out in memory row-by-row (e.g. row major order). Therefore, the linear/flattened address of a given element is i * cols + j 
+where i * cols gives the row offset and j gives the desired column in that specific row.
 - Why might you flatten a 2D array in embedded code?
+Flattening a 2D array makes the code/array data structure simpler to understand (only one index variable to track/only one pointer to dereference)
+and more efficient for reading from or writing to the array due to only one pass needed for the for loop (compared to two for a 2D non-flattened array).
 - What’s the difference between matrix[i][j] and *(&matrix[0][0] + i * cols + j)?
+The former uses standard indexing and is how a 2D non-flattened array would be written to or read from in a nested for loop, while the latter uses
+a dereferenced flattened pointer to access a flattened 1D/linear array, which can be written to or read from in just a single loop.
 
 Part III:
 - What’s the purpose of the head and tail indices?
